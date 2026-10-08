@@ -1,0 +1,38 @@
+{
+  "_comment": [
+    "Fleet site registry (FUTURE multi-site support — documentation only).",
+    "Today exactly ONE active site is selected via environment variables",
+    "(NVR_SITE / NVR_HOST / NVR_USER / NVR_PASS / NVR_LAN_PREFIX /",
+    "NVR_EXPECTED_IP_RANGE). This file shows the shape additional sites would",
+    "take once the server loads a registry instead of a single env site.",
+    "Copy to sites.json and fill real values. NEVER commit real credentials —",
+    "keep passwords in the SOSOS vault, reference them here by env var name."
+  ],
+  "active": "my-store",
+  "sites": {
+    "my-store": {
+      "label": "My Store",
+      "host": "192.168.1.100",
+      "http_port": 80,
+      "rtsp_port": 554,
+      "username": "admin",
+      "password_env": "NVR_PASS",
+      "lan_prefix": "10.1.10",
+      "expected_ip_range": "50-64",
+      "model": "Dahua DH-NVR4216-16P-HDS3",
+      "channels": 16
+    },
+    "example-second-site": {
+      "label": "Example Second Store",
+      "host": "192.168.20.10",
+      "http_port": 80,
+      "rtsp_port": 554,
+      "username": "admin",
+      "password_env": "NVR_PASS_SECONDSITE",
+      "lan_prefix": "192.168.20",
+      "expected_ip_range": "20-40",
+      "model": "Dahua DH-NVR4208-8P-4KS2",
+      "channels": 8
+    }
+  }
+}
